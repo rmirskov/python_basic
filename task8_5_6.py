@@ -44,8 +44,6 @@ def main():
                 'min_copy_speed': 'минимальная скорость',
                 'max_copy_speed': 'максимальная скорость'
                 }
-        else:
-            print('Неверный код для орг. техники. Введите p - принтер, s - сканер, x - ксерокс.')
         obj_args = []
         obj_kwargs = {}
         numeric_params = ['length', 'width', 'height', 'weight', 'min_copy_speed', 'max_copy_speed']
@@ -100,7 +98,9 @@ def main():
             else:
                 print('В данном отделе нет оргтехники с таким инвентарным номером.')
         elif input_string == 'n':
-            type_obj = input('Введите p - принтер, s - сканер, x - ксерокс: ')
+            type_obj = 'None'
+            while type_obj not in 'psx' or len(type_obj) > 1:
+                type_obj = input('Введите p - принтер, s - сканер, x - ксерокс: ')
             add_equip(type_obj)
         elif input_string == 'v':
             print(warehouse)
